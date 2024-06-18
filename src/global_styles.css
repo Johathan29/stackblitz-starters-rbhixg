@@ -1,0 +1,22 @@
+/* Add application styles & imports to this file! */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-weight: 700 !important;
+}
