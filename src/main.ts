@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { RouterModule, Routes, RouterOutlet } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import 'zone.js';
-import { HeaderComponent } from './app/Header/header/header.component';
+import { HeaderComponent } from './app/header/header.component';
+import { FooterComponent } from './app/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faVirus } from '@fortawesome/free-solid-svg-icons';
 import { SliderComponent } from './app/slider/slider.component';
 import { PortafolioComponent } from './app/portafolio/portafolio.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { initFlowbite } from 'flowbite';
 
 const appRoutes: Routes = [
   { path: 'Portafolio', component: PortafolioComponent },
@@ -22,6 +24,7 @@ const appRoutes: Routes = [
     RouterOutlet,
     PortafolioComponent,
     FontAwesomeModule,
+    FooterComponent,
   ],
   standalone: true,
 
@@ -29,6 +32,7 @@ const appRoutes: Routes = [
  
 <app-header/>
 <app-slider/>
+<app-footer/>
 
 <fa-icon [icon]="faCoffee"></fa-icon>
   `,
@@ -39,5 +43,5 @@ export class App {
 }
 
 bootstrapApplication(App, {
-  providers: [provideAnimationsAsync()]
+  providers: [provideAnimationsAsync()],
 });

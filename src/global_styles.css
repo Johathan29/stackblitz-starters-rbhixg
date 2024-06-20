@@ -20,3 +20,6 @@ h6 {
   font-family: 'Times New Roman', Times, serif !important;
   font-weight: 700 !important;
 }
+.mat-typography h2 {
+  margin: 0rem;
+}
