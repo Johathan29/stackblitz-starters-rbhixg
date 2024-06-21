@@ -10,7 +10,7 @@ import { SliderComponent } from './app/slider/slider.component';
 import { PortafolioComponent } from './app/portafolio/portafolio.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { initFlowbite } from 'flowbite';
-
+import { NotificacionesService } from './app/notificaciones.service';
 const appRoutes: Routes = [
   { path: 'Portafolio', component: PortafolioComponent },
 
