@@ -12,7 +12,7 @@
       <div
         class="absolute inline-flex items-center justify-center w-6 h-6 text-[10px] font-bold text-white bg-red-500 border-1 hover:border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900"
       >
-        20
+        {{ notifi }}
       </div>
     </button>
 
@@ -42,17 +42,16 @@
     aria-hidden="true"
   ></div>
   <div class="container mx-auto p-2 sm:py-48 lg:py-48">
-    <div class="text-center">
+    <div class="text-center" *ngFor="let item of datas">
       <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-        Data to enrich your online business
+        {{ item.name }}
       </h1>
       <p class="mt-2 text-lg leading-5 text-gray-600 font-serif opacity-50">
-        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-        cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+        {{ item.description }}
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6">
         <a
-          href="#"
+          href="{{ item.url }}"
           class="rounded-md bg-gray-800 p-1 text-gray-400 hover:text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >Leer más <fa-icon [icon]="faCoffee"> </fa-icon
         ></a>
@@ -64,11 +63,7 @@
 <section
   id="portafolio"
   class="border-t-8 w-full relative"
-  style="background-image: url(https://s1.wp.com/wp-content/themes/h4/assets/hosting/globe.svg);
-  background-position: top;
-  background-repeat: no-repeat;
-    background-size: 40rem;
-"
+  style="background-image:url(https://s1.wp.com/wp-content/themes/h4/assets/hosting/globe.svg);background-position: top;background-repeat: no-repeat;background-size: 40rem;"
 >
   <img
     src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-y=.8&amp;w=2830&amp;h=1500&amp;q=80&amp;blend=111827&amp;sat=-100&amp;exp=15&amp;blend-mode=multiply"
@@ -91,5 +86,4 @@
     </h4>
   </div>
   <app-proyectos />
-  <img src="../assets/primera.jpg" />
 </section>
