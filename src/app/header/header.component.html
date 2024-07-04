@@ -41,43 +41,32 @@
       <ul
         class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
       >
-        <li>
+      
+      <li *ngFor="let item of navegation">
           <a
-            href="/"
-            class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-            aria-current="page"
-            >Portada</a
-          >
-        </li>
-        <li>
-          <a
-            href="/#portafolio"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Portafolio</a
-          >
-        </li>
-        <li>
-          <a
-            href="/#proyectos"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Proyectos</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Calendar</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >Contact</a
-          >
-        </li>
+          href="{{item.url}}"
+          class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+          aria-current="page">{{item.titulo}}
+          </a>
+          <ul class="py-2 hidden">
+          <li *ngFor="let child of item.children">
+            <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+              {{
+                child.childtitle
+              }}
+            </a>
+          </li>
+        </ul>
+      </li>
       </ul>
     </div>
   </div>
 </nav>
+<Style>
+  .active{
+    color: white;
+  }
+  ul li:hover ul {
+    display: block!important;
+  }
+</Style>
