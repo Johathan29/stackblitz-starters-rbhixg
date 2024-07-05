@@ -25,6 +25,7 @@ const appRoutes: Routes = [
     PortafolioComponent,
     FontAwesomeModule,
     FooterComponent,
+    
   ],
   standalone: true,
 
