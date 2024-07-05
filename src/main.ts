@@ -34,8 +34,6 @@ const appRoutes: Routes = [
 <app-header/>
 <app-slider/>
 <app-footer/>
-
-<fa-icon [icon]="faCoffee"></fa-icon>
   `,
 })
 export class App {
