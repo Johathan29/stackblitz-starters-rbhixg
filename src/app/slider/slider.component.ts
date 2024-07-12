@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { Form, FormsModule } from '@angular/forms';
 import { PortafolioComponent } from '../portafolio/portafolio.component';
 import { ProyectosComponent } from '../proyectos/proyectos.component';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -11,13 +12,14 @@ import { NotificacionesService } from '../notificaciones.service';
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [PortafolioComponent, ProyectosComponent, FontAwesomeModule, NgFor],
+  imports: [PortafolioComponent, ProyectosComponent, FontAwesomeModule, NgFor,FormsModule],
   providers: [NotificacionesService],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',
 })
 export class SliderComponent implements OnInit {
   faCoffee = faArrowRight;
+  
   faBell = faBell;
   notifi = 20;
   valor: any;
@@ -29,8 +31,9 @@ export class SliderComponent implements OnInit {
       url: '/',
     },
   ];
-  constructor(private resultadoPeticion: NotificacionesService) {}
+  constructor(private resultadoPeticion: NotificacionesService, f:Form) {}
   ngOnInit() {
+    
     this.valor = this.datas.find(
       (item) =>
         (item.name = 'Data to enrich your online business' ? item.name : '')
