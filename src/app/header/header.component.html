@@ -20,7 +20,7 @@
       class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
       aria-controls="navbar-default"
       aria-expanded="false"
-    >
+      >
       <span class="sr-only">Open main menu</span>
       <svg
         class="w-5 h-5"
@@ -43,15 +43,21 @@
         class="font-medium flex flex-col p-4 md:p-0 mt-4  border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
       >
       
-      <li *ngFor="let item of navegation" class="mb-4 ">
+      <li *ngFor="let item of navegation" class="mb-1  ">
           <a
           href="{{item.url}}"
-          class="rounded-md bg-gray-900 px-3 py-2 text-sm  text-white w-24"
-          aria-current="page">{{item.titulo}}
+          class="rounded-md bg-gray-900 px-3 py-2 text-sm justify-between flex flex-auto text-white w-26"
+          aria-current="page"><span>{{item.titulo}}</span>
+          <fa-icon
+          [icon]="faCoffee" *ngIf="item.children.length!==0"
+          style="font-size: 18px;display: block;width: 23px;height: 23px;padding: -5px;"
+        ></fa-icon>
           </a>
-          <ul class="py-1 hidden relative md:absolute z-40 bg-gray-500 w-24 ml-28 mr-28" *ngIf="item.children.length!==0">
-          <li *ngFor="let child of item.children" class="" >
-            <a href="" *ngIf="child.childtitle!=''" class="block text-sm text-left px-3 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+          <ul class="py-0 hidden relative md:absolute z-40 bg-gray-500  ml-[0.4rem]  " style="
+          width: 98.5%;
+      " *ngIf="item.children.length!==0">
+          <li *ngFor="let child of item.children" class=""  >
+            <a href="" *ngIf="child.childtitle!=''" class="block text-sm text-left px-3 py-2 text-white hover:bg-[#111827d9] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
               {{
                 child.childtitle
               }}

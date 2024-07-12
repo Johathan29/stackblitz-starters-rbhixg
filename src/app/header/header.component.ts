@@ -1,7 +1,7 @@
 import { Component, } from '@angular/core';
 import { NgFor,NgClass,NgIf} from '@angular/common';
 import { RouterLink, RouterModule, ActivatedRoute, ChildrenOutletContexts } from '@angular/router';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -12,7 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  faCoffee = faBell;
+  faCoffee = faAngleDown;
   navegation=[
     {
 titulo:'Portada',
