@@ -18,10 +18,7 @@ export class HeaderComponent {
 titulo:'Portada',
 url:'/',
 children:[
-  {
-  childtitle:'',
-childurl:''
-}
+  
 ],
 
 
