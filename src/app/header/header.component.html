@@ -9,9 +9,10 @@
         alt=""
       />
       <span
-        class="self-center text-white text-2xl font-semibold whitespace-nowrap dark:text-white"
+        class="self-center text-white md:text-xl  text-sm/[17px]  whitespace-nowrap dark:text-white"
         >SOLUTION SUPPORTS</span
       >
+      
     </a>
     <button
       data-collapse-toggle="navbar-default"
@@ -45,11 +46,11 @@
       <li *ngFor="let item of navegation" class="mb-4 ">
           <a
           href="{{item.url}}"
-          class="rounded-md bg-gray-900 px-3 py-2 text-sm  text-white"
+          class="rounded-md bg-gray-900 px-3 py-2 text-sm  text-white w-24"
           aria-current="page">{{item.titulo}}
           </a>
-          <ul class="py-1 hidden relative md:absolute z-40 " *ngIf="item.children.length!==0">
-          <li *ngFor="let child of item.children" class="w-24" >
+          <ul class="py-1 hidden relative md:absolute z-40 bg-gray-500 w-24 ml-28 mr-28" *ngIf="item.children.length!==0">
+          <li *ngFor="let child of item.children" class="" >
             <a href="" *ngIf="child.childtitle!=''" class="block text-sm text-left px-3 py-2 text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
               {{
                 child.childtitle
