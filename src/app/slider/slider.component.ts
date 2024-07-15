@@ -1,8 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor,JsonPipe } from '@angular/common';
 import { FormSubmittedEvent, FormsModule } from '@angular/forms';
 import { PortafolioComponent } from '../portafolio/portafolio.component';
 import { ProyectosComponent } from '../proyectos/proyectos.component';
+import { FormLogComponent} from '../form-log/form-log.component';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -12,7 +13,7 @@ import { NotificacionesService } from '../notificaciones.service';
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [PortafolioComponent, ProyectosComponent, FontAwesomeModule, NgFor,FormsModule],
+  imports: [PortafolioComponent, ProyectosComponent,FormLogComponent, FontAwesomeModule, NgFor,FormsModule,JsonPipe],
   providers: [NotificacionesService],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',
@@ -39,5 +40,5 @@ export class SliderComponent implements OnInit {
         (item.name = 'Data to enrich your online business' ? item.name : '')
     );
   }
-  onSubmit(){}
+
 }
