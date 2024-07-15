@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { Form, FormsModule } from '@angular/forms';
+import { FormSubmittedEvent, FormsModule } from '@angular/forms';
 import { PortafolioComponent } from '../portafolio/portafolio.component';
 import { ProyectosComponent } from '../proyectos/proyectos.component';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -18,8 +18,8 @@ import { NotificacionesService } from '../notificaciones.service';
   styleUrl: './slider.component.css',
 })
 export class SliderComponent implements OnInit {
-  faCoffee = faArrowRight;
-  
+  faArrowRight = faArrowRight;
+ 
   faBell = faBell;
   notifi = 20;
   valor: any;
@@ -31,7 +31,7 @@ export class SliderComponent implements OnInit {
       url: '/',
     },
   ];
-  constructor(private resultadoPeticion: NotificacionesService, f:Form) {}
+  constructor(private resultadoPeticion: NotificacionesService) {}
   ngOnInit() {
     
     this.valor = this.datas.find(
@@ -39,4 +39,5 @@ export class SliderComponent implements OnInit {
         (item.name = 'Data to enrich your online business' ? item.name : '')
     );
   }
+  onSubmit(){}
 }

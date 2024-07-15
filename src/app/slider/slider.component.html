@@ -21,14 +21,14 @@
       <div>
 
 
-<form class="max-w-sm mx-auto z-50 bg-[#19243ccc] rounded-md p-4" ngform="f">
+<form class="max-w-sm mx-auto z-50 bg-[#19243ccc] rounded-md p-4"  (ngSubmit)=”onSubmit()” #miForm=”ngForm”>
   <div class="mb-5">
     <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
     <input type="email" id="email" #email ngModel class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
   </div>
   <div class="mb-5">
     <label for="password" class="block mb-2 text-sm font-medium text-white">Your password</label>
-    <input type="password" id="password" #password    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+    <input type="password" id="password" #password  ngModel  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
   </div>
   <div class="flex items-start mb-5">
     <div class="flex items-center h-5">
@@ -73,7 +73,7 @@
         <a
           href="{{ item.url }}"
           class="rounded-md bg-gray-800 p-1 text-gray-400 hover:text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >Leer más <fa-icon [icon]="faCoffee"> </fa-icon
+          >Leer más <fa-icon [icon]="faArrowRight"> </fa-icon
         ></a>
       </div>
     </div>
