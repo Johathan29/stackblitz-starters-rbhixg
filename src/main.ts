@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterModule, Routes, RouterOutlet } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import 'zone.js';
+
+import {  HttpClient } from '@angular/common/http';
 import { HeaderComponent } from './app/header/header.component';
 import { FooterComponent } from './app/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -25,7 +27,7 @@ const appRoutes: Routes = [
     PortafolioComponent,
     FontAwesomeModule,
     FooterComponent,
-    
+   
   ],
   standalone: true,
 

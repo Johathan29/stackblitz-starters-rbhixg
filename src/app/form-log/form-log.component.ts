@@ -1,32 +1,38 @@
-import { Component,OnInit,Injectable } from '@angular/core';
+import { Component,OnInit,Injectable,Inject } from '@angular/core';
 import { FormSubmittedEvent, FormsModule, NgForm,FormBuilder } from '@angular/forms';
 import { NgFor,JsonPipe,NgClass } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import {APIService} from '../api.service'
 @Component({
   selector: 'app-form-log',
   standalone: true,
   imports: [FormsModule, NgFor,JsonPipe,NgClass],
-
+providers:[Injectable,APIService],
   templateUrl: './form-log.component.html',
   styleUrl: './form-log.component.css'
 })
 
 export class FormLogComponent implements OnInit { 
-  resultadoPeticion:any;
+
+ 
    name:any;
    classes=['max-w-sm', 'mx-auto', 'z-50', 'bg-[#19243ccc]', 'rounded-md', 'p-4']; 
-  asignaClases()
+  
+   asignaClases()
   {
    
     
     return this.classes;
   }
-  constructor( private mibuilder : FormBuilder) { }
+  constructor() { }
+ Get() {
+    
+    }
   activo=false;
-  ngOnInit() { this.get();console.log(this.asignaClases()); this.name= localStorage.getItem("nombre");}
-  get() {
-
-  }
+  ngOnInit() { //this.Get();
+   
+    console.log(this.asignaClases()); this.name= localStorage.getItem("nombre");}
+ 
     
   onSubmit(miForm: NgForm){
     
@@ -36,7 +42,7 @@ export class FormLogComponent implements OnInit {
       this.activo=true;
       this.classes.push('hidden');
       console.log(this.asignaClases());
-   localStorage.setItem('nombre','Johathan');
+   localStorage.setItem('nombre','Alexander');
    
     console.log(this.name);
     } else{

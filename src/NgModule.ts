@@ -4,7 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { App } from './main';
 import { PortafolioComponent } from './app/portafolio/portafolio.component';
+
 const appRoutes: Routes = [
+  
   { path: 'Portafolio', component: PortafolioComponent },
 
   //{ path: '**', component: App }
