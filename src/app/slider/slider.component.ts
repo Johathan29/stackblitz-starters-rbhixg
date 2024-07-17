@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject,Input, Output,EventEmitter} from '@angular/core';
 import { NgFor,JsonPipe } from '@angular/common';
 import { FormSubmittedEvent, FormsModule } from '@angular/forms';
 import { PortafolioComponent } from '../portafolio/portafolio.component';
@@ -18,9 +18,11 @@ import { NotificacionesService } from '../notificaciones.service';
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',
 })
+
 export class SliderComponent implements OnInit {
+  
   faArrowRight = faArrowRight;
- 
+  resultadoP:any;
   faBell = faBell;
   notifi = 20;
   valor: any;
@@ -40,5 +42,6 @@ export class SliderComponent implements OnInit {
         (item.name = 'Data to enrich your online business' ? item.name : '')
     );
   }
+  captaResultado(event:any) { this.resultadoP = event; }
 
 }

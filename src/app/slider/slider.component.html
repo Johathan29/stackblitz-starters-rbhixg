@@ -1,4 +1,5 @@
-<app-form-log></app-form-log>
+<app-form-log 
+ (envRes)="captaResultado($event)"></app-form-log>
 <div class="relative isolate px-6 pt-14 lg:px-8">
   <div class="fixed inset-auto right-2 z-50 flex pr-2 sm:fixed sm:pr-0">
     <button
@@ -37,6 +38,7 @@
             alt=""
           />
         </button>
+        {{resultadoP}}
       </div>
     </div>
   </div>
