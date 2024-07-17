@@ -47,7 +47,7 @@ this.asignaClases();
  
     
   onSubmit(miForm: NgForm){
-   
+    
     if(miForm.value.email==='rosariojohathan@gmail.com' && miForm.value.password==='12345')
     {
       alert('hola Johathan');
