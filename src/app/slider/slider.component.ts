@@ -1,5 +1,5 @@
 import { Component, OnInit, inject,Input, Output,EventEmitter} from '@angular/core';
-import { NgFor,JsonPipe } from '@angular/common';
+import { NgFor,JsonPipe,NgIf } from '@angular/common';
 import { FormSubmittedEvent, FormsModule } from '@angular/forms';
 import { PortafolioComponent } from '../portafolio/portafolio.component';
 import { ProyectosComponent } from '../proyectos/proyectos.component';
@@ -13,7 +13,7 @@ import { NotificacionesService } from '../notificaciones.service';
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [PortafolioComponent, ProyectosComponent,FormLogComponent, FontAwesomeModule, NgFor,FormsModule,JsonPipe],
+  imports: [PortafolioComponent, ProyectosComponent,NgIf,FormLogComponent, FontAwesomeModule, NgFor,FormsModule,JsonPipe],
   providers: [NotificacionesService],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',
@@ -43,5 +43,8 @@ export class SliderComponent implements OnInit {
     );
   }
   captaResultado(event:any) { this.resultadoP = event; }
-
+   SignOut=()=>{
+localStorage.setItem('nombre','');
+location.reload();
+  }
 }
