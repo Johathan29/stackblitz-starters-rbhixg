@@ -108,16 +108,19 @@ if(emailValidado){
     */
     
   }
+  restablecer(){
+    return this.classError;
+  }
   validar(){
     if(this.name==''){
       this.notificacion="su email y password son incorretas, intenta de nuevo";
       this.classError.shift();
-      this.classError.push('flex','z-50', 'p-4');
+      this.classError.push('flex','z-50', 'p-4','w-full');
       return this.classError;
 
-    }else
+    }
+    else
     {
-   
       this.classValid.shift();
       this.classValid.push('flex','z-50', 'p-4');
       return this.classValid
