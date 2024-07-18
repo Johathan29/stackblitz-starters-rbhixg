@@ -19,14 +19,14 @@
   </form>
 
 </div>
-<div id="alert-border-2" [ngClass]="name ? classValid : classError " role="alert">
+<div id="alert-border-2" [ngClass]="name ? classValid : classError" role="alert">
   
   <fa-icon
-  [icon]="faExclamationCircle" 
+  [icon]="name ? faSmile : faExclamationCircle" 
   style="font-size: 16px;display: block;"
 ></fa-icon>
   <div class="ms-3 text-sm font-medium">
-    A simple danger alert with an <a href="#" class="font-semibold underline hover:no-underline">example link</a>. Give it a click if you like.
+   {{notificacion}} <a href="#" class="font-semibold underline hover:no-underline">{{name}}</a>
   </div>
   <button type="button" [ngClass]="name ? classBtncerrarValid :classBtncerrarError"  data-dismiss-target="#alert-border-2" aria-label="Close">
     <span class="sr-only">Dismiss</span>

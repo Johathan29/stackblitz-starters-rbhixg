@@ -5,6 +5,7 @@ import { HttpClient,HttpRequest } from '@angular/common/http';
 import {APIService} from '../api.service';
 import {datauser} from '../Datauser'
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { faSmile } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -19,13 +20,14 @@ providers:[Injectable,APIService],
 export class FormLogComponent implements OnInit { 
   @Output() envRes: EventEmitter<any> = new EventEmitter<any>();
 
-  
+  faSmile=faSmile;
   faExclamationCircle=faExclamationCircle;
  path:any; 
+ notificacion:any;
  hidden="hidden";
  classUserRegistrado=['fixed', ' inset-auto', ' right-2', ' z-40 ', 'flex ', 'pr-2 ', ' mt-2', ' sm:fixed', ' sm:pr-0']
- classError=['flex', 'items-center', ' z-50 p-4 mb-4 ', 'absolute', ' text-red-800 ', 'border-t-4 ', 'border-red-300', ' bg-red-50', 'dark:text-red-400 ', 'dark:bg-gray-800', 'dark:border-red-800'];
- classValid=['flex ','absolute', 'items-center', ' p-4', ' mb-4', 'text-sm ', 'text-green-800 ', 'rounded-lg ', 'bg-green-50', ' dark:bg-gray-800 ', 'dark:text-green-400'] 
+ classError=['hidden', 'items-center','w-full','hidden','z-50','p-4','mb-4', 'absolute', ' text-red-800 ', 'border-t-4 ', 'border-red-300', ' bg-red-50', 'dark:text-red-400 ', 'dark:bg-gray-800', 'dark:border-red-800'];
+ classValid=['flex ','absolute','w-full', 'items-center', ' p-4', ' mb-4', 'text-sm ', 'text-green-800 ', 'rounded-lg ', 'bg-green-50', ' dark:bg-gray-800 ', 'dark:text-green-400'] 
  classBtncerrarError=['ms-auto', ' -mx-1.5 ','z-50', '-my-1.5', ' bg-red-50', ' text-red-500', ' rounded-lg', ' focus:ring-2', ' focus:ring-red-400', ' p-1.5', ' hover:bg-red-200', ' inline-flex', ' items-center', ' justify-center', ' h-8', ' w-8', ' dark:bg-gray-800', ' dark:text-red-400', ' dark:hover:bg-gray-700']
  classBtncerrarValid=['ms-auto', ' -mx-1.5 ', 'z-50','-my-1.5', ' bg-green-50', ' text-green-500', ' rounded-lg', ' focus:ring-2', ' focus:ring-red-400', ' p-1.5', ' hover:bg-green-200', ' inline-flex', ' items-center', ' justify-center', ' h-8', ' w-8', ' dark:bg-gray-800', ' dark:text-green-400', ' dark:hover:bg-gray-700']
   name:any;
@@ -42,6 +44,7 @@ export class FormLogComponent implements OnInit {
   resultadoPeticion:any;
   
   constructor() { }
+  
  get= async () => {
     const response = await fetch('https://dummyjson.com/users');
     this.result= await response.json();
@@ -56,7 +59,7 @@ export class FormLogComponent implements OnInit {
     this.get();
     this.envRes.emit(localStorage.getItem("nombre"))
     
- this.classError;
+ 
 this.asignaClases(); 
     this.name=localStorage.getItem("nombre");
   }
@@ -66,6 +69,7 @@ this.asignaClases();
     const value=this.result.users;
   this.email= value.forEach(function (value:any) {
     value.email;
+    
 });
 
 const emailValidado=this.result.users.find(function(emai:any) {
@@ -78,15 +82,17 @@ if(emailValidado){
   this.classes.push('hidden');
   this.asignaClases();
   console.log(localStorage.setItem('nombre',emailValidado.firstName));
-  this.classValid;
+  this.validar();
   location.reload();
+  this.notificacion="Bienvenido";
 }else
 {
-   this.path="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-  console.log('no validado email')
-  this.classError;
+  console.log('no validado email');
+  this.validar();
+
 }
-    if(miForm.value.email===this.email && miForm.value.password==='12345')
+
+   /* if(miForm.value.email===this.email && miForm.value.password==='12345')
     {
       alert('hola Johathan');
       this.activo=true;
@@ -97,8 +103,25 @@ if(emailValidado){
     
     } else{
       alert('su email y password son incorretas, intenta de nuevo');
+      this.validar();
     }
-  
+    */
+    
+  }
+  validar(){
+    if(this.name==''){
+      this.notificacion="su email y password son incorretas, intenta de nuevo";
+      this.classError.shift();
+      this.classError.push('flex','z-50', 'p-4');
+      return this.classError;
+
+    }else
+    {
+   
+      this.classValid.shift();
+      this.classValid.push('flex','z-50', 'p-4');
+      return this.classValid
+    }
   }
   
 }
