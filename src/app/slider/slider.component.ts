@@ -1,4 +1,4 @@
-import { Component, OnInit, inject,Input, Output,EventEmitter} from '@angular/core';
+import { Component, OnInit,OnDestroy, inject,Input, Output,EventEmitter} from '@angular/core';
 import { NgFor,JsonPipe,NgIf } from '@angular/common';
 import { FormSubmittedEvent, FormsModule } from '@angular/forms';
 import { PortafolioComponent } from '../portafolio/portafolio.component';
@@ -43,6 +43,9 @@ export class SliderComponent implements OnInit {
     );
   }
   captaResultado(event:any) { this.resultadoP = event; }
+ngOnDestroy(){
+  this.SignOut();
+}
    SignOut=()=>{
 localStorage.setItem('nombre','');
 location.reload();

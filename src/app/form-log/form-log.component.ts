@@ -1,5 +1,5 @@
 import { Component,OnInit,Injectable,Inject,Input, Output,EventEmitter} from '@angular/core';
-import { FormSubmittedEvent, FormsModule, NgForm,FormBuilder,Validators } from '@angular/forms';
+import { FormSubmittedEvent, FormsModule, NgForm,FormBuilder,Validators,FormGroup,ReactiveFormsModule } from '@angular/forms';
 import { NgFor,JsonPipe,NgClass } from '@angular/common';
 import { HttpClient,HttpRequest } from '@angular/common/http';
 import {APIService} from '../api.service';
@@ -19,7 +19,7 @@ providers:[Injectable,APIService,Validators],
 @Injectable()
 export class FormLogComponent implements OnInit { 
   @Output() envRes: EventEmitter<any> = new EventEmitter<any>();
-
+  form: FormGroup;
   faSmile=faSmile;
   faExclamationCircle=faExclamationCircle;
  path:any; 
@@ -43,7 +43,12 @@ export class FormLogComponent implements OnInit {
   }
   resultadoPeticion:any;
   
-  constructor() { }
+  constructor(private fctrl:FormBuilder) {
+    this.form=fctrl.group({
+      Email : ['',Validators.required],
+      Password : ''
+    });
+   }
   
  get= async () => {
     const response = await fetch('https://dummyjson.com/users');
@@ -53,7 +58,9 @@ export class FormLogComponent implements OnInit {
 
   
  }
+ remember(){
 
+ }
   activo=false;
   ngOnInit() { //this.Get();
     this.get();

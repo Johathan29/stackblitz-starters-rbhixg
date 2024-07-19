@@ -50,7 +50,7 @@
           aria-current="page"><span>{{item.titulo}}</span>
           <fa-icon
           [icon]="faCoffee" *ngIf="item.children.length!==0"
-          style="font-size: 13px;display: block;width: 23px;text-align: end;">
+          style="font-size: 13px;display: block;width: auto;text-align: end;">
           </fa-icon>
           </a>
           <ul class="py-0 hidden relative md:absolute z-50 bg-gray-500  ml-[0.4rem]  md:w-[6.3rem]" *ngIf="item.children.length!==0">
@@ -73,5 +73,20 @@
   }
   ul li:hover ul {
     display: block!important;
+  }
+  ul li:hover fa-icon{
+    
+    color:rgb(107 114 128 / var(--tw-bg-opacity));
+    transition: 0.2s;
+    transform: rotate(180deg);
+    text-align: right;
+    position: sticky;
+  }
+  fa-icon{
+    
+    
+    transition: 0.2s;
+    transform: rotate(0deg);
+    text-align: right;
   }
 </Style>
