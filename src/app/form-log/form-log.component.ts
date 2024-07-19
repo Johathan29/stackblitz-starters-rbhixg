@@ -1,5 +1,5 @@
 import { Component,OnInit,Injectable,Inject,Input, Output,EventEmitter} from '@angular/core';
-import { FormSubmittedEvent, FormsModule, NgForm,FormBuilder } from '@angular/forms';
+import { FormSubmittedEvent, FormsModule, NgForm,FormBuilder,Validators } from '@angular/forms';
 import { NgFor,JsonPipe,NgClass } from '@angular/common';
 import { HttpClient,HttpRequest } from '@angular/common/http';
 import {APIService} from '../api.service';
@@ -11,8 +11,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-form-log',
   standalone: true,
-  imports: [FormsModule, NgFor,NgClass,JsonPipe,NgClass,FontAwesomeModule],
-providers:[Injectable,APIService],
+  imports: [FormsModule, NgFor,NgClass,JsonPipe,NgClass,FontAwesomeModule,],
+providers:[Injectable,APIService,Validators],
   templateUrl: './form-log.component.html',
   styleUrl: './form-log.component.css'
 })

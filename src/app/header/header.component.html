@@ -50,10 +50,10 @@
           aria-current="page"><span>{{item.titulo}}</span>
           <fa-icon
           [icon]="faCoffee" *ngIf="item.children.length!==0"
-          style="font-size: 18px;display: block;width: 23px;height: 23px;padding: -5px;"
+          style="font-size: 13px;display: block;width: 23px;padding: -5px;text-align: end;"
         ></fa-icon>
           </a>
-          <ul class="py-0 hidden relative md:absolute z-40 bg-gray-500  ml-[0.4rem]  md:w-auto" *ngIf="item.children.length!==0">
+          <ul class="py-0 hidden relative md:absolute z-50 bg-gray-500  ml-[0.4rem]  md:w-[6.3rem]" *ngIf="item.children.length!==0">
           <li *ngFor="let child of item.children" class=""  >
             <a href="" *ngIf="child.childtitle!=''" class="block text-sm text-left px-3 py-2 text-white hover:bg-[#111827d9] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
               {{
