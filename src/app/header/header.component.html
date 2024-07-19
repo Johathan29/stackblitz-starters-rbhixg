@@ -50,8 +50,8 @@
           aria-current="page"><span>{{item.titulo}}</span>
           <fa-icon
           [icon]="faCoffee" *ngIf="item.children.length!==0"
-          style="font-size: 13px;display: block;width: 23px;padding: -5px;text-align: end;"
-        ></fa-icon>
+          style="font-size: 13px;display: block;width: 23px;text-align: end;">
+          </fa-icon>
           </a>
           <ul class="py-0 hidden relative md:absolute z-50 bg-gray-500  ml-[0.4rem]  md:w-[6.3rem]" *ngIf="item.children.length!==0">
           <li *ngFor="let child of item.children" class=""  >
