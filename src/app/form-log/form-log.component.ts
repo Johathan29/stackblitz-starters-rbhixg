@@ -89,6 +89,7 @@ if(emailValidado){
   this.classes.push('hidden');
   this.asignaClases();
   console.log(localStorage.setItem('nombre',emailValidado.firstName));
+  localStorage.setItem('role',emailValidado.role);
   this.validar();
   location.reload();
   this.notificacion="Bienvenido";

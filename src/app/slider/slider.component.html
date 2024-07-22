@@ -64,21 +64,24 @@
     aria-hidden="true"
   ></div>
   <div class="container mx-auto p-2 sm:py-48 lg:py-48">
-    <div class="text-center" *ngFor="let item of datas">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-        {{ item.name }}
-      </h1>
-      <p class="mt-2 text-lg leading-5 text-gray-600 font-serif opacity-50">
-        {{ item.description }}
-      </p>
-      <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a
-          href="{{ item.url }}"
-          class="rounded-md bg-gray-800  flex content-center p-1 text-gray-400 hover:text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >Leer más <fa-icon
-          [icon]="faArrowRight"
-          style="font-size: 12px;display: block;width: 23px;height: 23px;padding: -5px;"
-        ></fa-icon></a>
+    <div class="text-center" *ngFor="let item of datas" >
+      {{role}}
+      <div *ngIf="item.role==role">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+          {{ item.name }} 
+        </h1>
+        <p class="mt-2 text-lg leading-5 text-gray-600 font-serif opacity-50">
+          {{ item.description }}
+        </p>
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+          <a
+            href="{{ item.url }}"
+            class="rounded-md bg-gray-800  flex content-center p-1 text-gray-400 hover:text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >Leer más <fa-icon
+            [icon]="faArrowRight"
+            style="font-size: 12px;display: block;width: 23px;height: 23px;padding: -5px;"
+          ></fa-icon></a>
+        </div>
       </div>
     </div>
   </div>

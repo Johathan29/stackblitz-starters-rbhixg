@@ -25,9 +25,11 @@ export class SliderComponent implements OnInit {
   resultadoP:any;
   faBell = faBell;
   notifi = 20;
+  role=localStorage.getItem('role');
   valor: any;
   datas = [
     {
+      role: 'admin',
       name: 'Data to enrich your online business',
       description:
         ' Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.',
@@ -36,7 +38,7 @@ export class SliderComponent implements OnInit {
   ];
   constructor(private resultadoPeticion: NotificacionesService) {}
   ngOnInit() {
-    
+    this.role;
     this.valor = this.datas.find(
       (item) =>
         (item.name = 'Data to enrich your online business' ? item.name : '')
@@ -47,7 +49,7 @@ ngOnDestroy(){
   this.SignOut();
 }
    SignOut=()=>{
-localStorage.setItem('nombre','');
+localStorage.clear()
 location.reload();
   }
 }
