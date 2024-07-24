@@ -1,17 +1,18 @@
 import { Component,OnInit,Injectable,Inject,Input, Output,EventEmitter} from '@angular/core';
-import { FormSubmittedEvent, FormsModule, NgForm,FormBuilder,Validators,FormGroup,ReactiveFormsModule } from '@angular/forms';
-import { NgFor,JsonPipe,NgClass } from '@angular/common';
+import { FormSubmittedEvent, FormsModule, NgForm,FormBuilder,Validators,FormGroup,FormControl,ReactiveFormsModule } from '@angular/forms';
+import { NgFor,JsonPipe,NgClass,NgIf } from '@angular/common';
 import { HttpClient,HttpRequest } from '@angular/common/http';
 import {APIService} from '../api.service';
 import {datauser} from '../Datauser'
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { faSmile } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-form-log',
   standalone: true,
-  imports: [FormsModule, NgFor,NgClass,JsonPipe,NgClass,FontAwesomeModule,],
+  imports: [FormsModule, NgFor,NgClass,JsonPipe,NgClass,FontAwesomeModule,NgIf],
 providers:[Injectable,APIService,Validators],
   templateUrl: './form-log.component.html',
   styleUrl: './form-log.component.css'
@@ -22,6 +23,7 @@ export class FormLogComponent implements OnInit {
   form: FormGroup;
   faSmile=faSmile;
   faExclamationCircle=faExclamationCircle;
+  faCircleExclamation=faCircleExclamation;
  path:any; 
  notificacion:any;
  hidden="hidden";
@@ -32,9 +34,11 @@ export class FormLogComponent implements OnInit {
  classBtncerrarValid=['ms-auto', ' -mx-1.5 ', 'z-50','-my-1.5', ' bg-green-50', ' text-green-500', ' rounded-lg', ' focus:ring-2', ' focus:ring-red-400', ' p-1.5', ' hover:bg-green-200', ' inline-flex', ' items-center', ' justify-center', ' h-8', ' w-8', ' dark:bg-gray-800', ' dark:text-green-400', ' dark:hover:bg-gray-700']
   name:any;
   email:any;
+  menssege:any;
    data:any;
-   classes=['max-w-sm', 'mx-auto', 'z-50', 'bg-[#19243ccc]', 'rounded-md', 'p-4']; 
+   classes=['max-w-60','min-w-60','w-60', 'mx-auto', 'z-50', 'bg-[#19243ccc]', 'rounded-md', 'p-4']; 
    result:any;
+   control:any;
    asignaClases()
   {
    
@@ -44,7 +48,7 @@ export class FormLogComponent implements OnInit {
   resultadoPeticion:any;
   
   constructor(private fctrl:FormBuilder) {
-    this.form=fctrl.group({
+    this.form=this.fctrl.group({
       Email : ['',Validators.required],
       Password : ''
     });
@@ -78,7 +82,29 @@ this.asignaClases();
     value.email;
     
 });
+this.control= new FormControl(miForm.value.email, Validators.compose([
+  Validators.required,
+  Validators.email,
+   ]) );
 
+if(this.control.errors === null){
+ 
+  
+  console.log(this.control.errors);
+
+}else{
+if(this.control.errors['required']===true){
+this.menssege="Completar este campo";
+} else
+if(this.control.errors['email']===true){
+this.menssege="Introducir un correo electronico valido";
+} else{
+this.menssege='';
+}
+ 
+console.log(this.control.errors['required']);
+   // {first: 'Nancy', last: 'Drew'}
+}
 const emailValidado=this.result.users.find(function(emai:any) {
   // Check if the current mark is even
 return emai.email==miForm.value.email && emai.password==miForm.value.password;

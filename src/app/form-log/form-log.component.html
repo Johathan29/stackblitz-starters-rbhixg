@@ -6,6 +6,13 @@
       <label for="email" class="block mb-2 text-sm font-medium text-white">Email</label>
       <input type="email" name="email" #email ngModel required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
     </div>
+    <div *ngIf="control.errors!==null || control.errors" class="mb-4 text-sm text-red-800 p-1 rounded-sm bg-red-50 border-2 dark:bg-gray-800 dark:text-red-400" role="alert">
+      <div class="tooltip-arrow z-10" data-popper-arrow style="top: 6.4rem;text-align: end;width: 5rem;"></div>
+      <span class="font-medium flex max-w-48 w-48 "><fa-icon
+        [icon]="faCircleExclamation"
+        style="font-size: 12px;display: block;width: 23px;height: 23px;padding: -5px;"
+      ></fa-icon>{{menssege}}!</span>
+    </div>
     <div class="mb-5">
       <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
       <input type="password" name="password" #password  ngModel  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
@@ -30,10 +37,11 @@
   <div class="ms-3 text-sm font-medium">
    {{notificacion}} <a href="#" class="font-semibold underline hover:no-underline">{{name}}</a>
   </div>
-  <button type="button" [ngClass]="name ? classBtncerrarValid :classBtncerrarError"   data-dismiss-target="#alert-border-2" aria-label="Close">
-    <span class="sr-only">Dismiss</span>
-    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-    </svg>
-  </button>
+
 </div>
+<style>
+  [data-popper-arrow]:after {
+  
+    width: 10px!important;
+    height: 10px!important;}
+</style>
