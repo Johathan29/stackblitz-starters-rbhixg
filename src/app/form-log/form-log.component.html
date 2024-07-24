@@ -6,16 +6,23 @@
       <label for="email" class="block mb-2 text-sm font-medium text-white">Email</label>
       <input type="email" name="email" #email ngModel required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
     </div>
-    <div *ngIf="control.errors!==null || control.errors" class="mb-4 text-sm text-red-800 p-1 rounded-sm bg-red-50 border-2 dark:bg-gray-800 dark:text-red-400" role="alert">
+    <div *ngIf="controlEmail.errors!==null || controlEmail.errors" class="mb-4 text-sm text-red-800 p-1 rounded-sm bg-red-50 border-2 dark:bg-gray-800 dark:text-red-400" role="alert">
       <div class="tooltip-arrow z-10" data-popper-arrow style="top: 6.4rem;text-align: end;width: 5rem;"></div>
       <span class="font-medium flex max-w-48 w-48 "><fa-icon
         [icon]="faCircleExclamation"
         style="font-size: 12px;display: block;width: 23px;height: 23px;padding: -5px;"
-      ></fa-icon>{{menssege}}!</span>
+      ></fa-icon>{{menssegeEmail}}!</span>
     </div>
     <div class="mb-5">
       <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
       <input type="password" name="password" #password  ngModel  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+    </div>
+    <div *ngIf="controlPassword.errors || controlPassword.errors!==null" class="mb-4 text-sm text-red-800 p-1 rounded-sm bg-red-50 border-2 dark:bg-gray-800 dark:text-red-400" role="alert">
+      <div class="tooltip-arrow z-10" data-popper-arrow style="top: 6.4rem;text-align: end;width: 5rem;"></div>
+      <span class="font-medium flex max-w-48 w-48 "><fa-icon
+        [icon]="faCircleExclamation"
+        style="font-size: 12px;display: block;width: 23px;height: 23px;padding: -5px;"
+      ></fa-icon>{{menssegePassword}}!</span>
     </div>
     <div class="flex items-start mb-5">
       <div class="flex items-center h-5">

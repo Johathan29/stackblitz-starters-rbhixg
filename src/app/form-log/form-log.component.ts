@@ -34,11 +34,13 @@ export class FormLogComponent implements OnInit {
  classBtncerrarValid=['ms-auto', ' -mx-1.5 ', 'z-50','-my-1.5', ' bg-green-50', ' text-green-500', ' rounded-lg', ' focus:ring-2', ' focus:ring-red-400', ' p-1.5', ' hover:bg-green-200', ' inline-flex', ' items-center', ' justify-center', ' h-8', ' w-8', ' dark:bg-gray-800', ' dark:text-green-400', ' dark:hover:bg-gray-700']
   name:any;
   email:any;
-  menssege:any;
+  menssegeEmail:any;
+  menssegePassword:any;
    data:any;
    classes=['max-w-60','min-w-60','w-60', 'mx-auto', 'z-50', 'bg-[#19243ccc]', 'rounded-md', 'p-4']; 
    result:any;
-   control:any;
+   controlEmail:any;
+   controlPassword:any;
    asignaClases()
   {
    
@@ -82,27 +84,44 @@ this.asignaClases();
     value.email;
     
 });
-this.control= new FormControl(miForm.value.email, Validators.compose([
+this.controlEmail= new FormControl(miForm.value.email, Validators.compose([
   Validators.required,
   Validators.email,
-   ]) );
-
-if(this.control.errors === null){
+   ]), );
+   this.controlPassword= new FormControl(miForm.value.password, Validators.compose([
+    Validators.required,
+    Validators.maxLength(8),
+     ]));
+if(this.controlEmail.errors === null){
  
   
-  console.log(this.control.errors);
+  console.log(this.controlEmail.errors);
 
 }else{
-if(this.control.errors['required']===true){
-this.menssege="Completar este campo";
+if(this.controlEmail.errors['required']===true){
+this.menssegeEmail="Completar este campo";
 } else
-if(this.control.errors['email']===true){
-this.menssege="Introducir un correo electronico valido";
+if(this.controlEmail.errors['email']===true){
+this.menssegeEmail="Introducir un correo electronico valido";
 } else{
-this.menssege='';
+this.menssegeEmail='';
 }
+if(this.controlPassword.errors === null ){
  
-console.log(this.control.errors['required']);
+  
+  console.log(this.controlPassword.errors);
+
+}else
+if(this.controlPassword.errors['required']===true ){
+this.menssegePassword="Completar este campo";
+console.log(this.controlPassword.errors['maxLength'])
+} else
+if(this.controlPassword.errors['maxLength']!==null){
+this.menssegePassword="Longitud Maxima de caracteres";
+} else{
+this.menssegePassword='';
+}
+console.log(this.controlEmail.errors['required']);
    // {first: 'Nancy', last: 'Drew'}
 }
 const emailValidado=this.result.users.find(function(emai:any) {
