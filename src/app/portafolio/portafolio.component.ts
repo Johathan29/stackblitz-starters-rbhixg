@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faWordpress } from '@fortawesome/free-brands-svg-icons';
@@ -11,7 +11,8 @@ import { ProyectosComponent } from '../proyectos/proyectos.component';
   templateUrl: './portafolio.component.html',
   styleUrl: './portafolio.component.css',
 })
-export class PortafolioComponent {
+export class PortafolioComponent implements OnInit  {
+  lenguajes:any;
   portafolio = [
     {
       title: 'WordPress',
@@ -27,4 +28,9 @@ export class PortafolioComponent {
         'La mejor forma de usar WordPress: un hosting ultrarrápido, una edición flexible e intuitiva y todo lo que necesitas para hacer crecer tu web y tu audiencia.',
     },
   ];
+  ngOnInit(){
+  this.lenguajes= this.portafolio.map(element =>  element.title);
+    console.log(this.lenguajes);
+  }
+ 
 }

@@ -121,7 +121,7 @@ this.menssegePassword="Longitud Maxima de caracteres";
 } else{
 this.menssegePassword='';
 }
-console.log(this.controlEmail.errors['required']);
+
    // {first: 'Nancy', last: 'Drew'}
 }
 const emailValidado=this.result.users.find(function(emai:any) {
