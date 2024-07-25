@@ -8,11 +8,11 @@ import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { faSmile } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-form-log',
   standalone: true,
-  imports: [FormsModule, NgFor,NgClass,JsonPipe,NgClass,FontAwesomeModule,NgIf],
+  imports: [FormsModule,RouterModule, NgFor,NgClass,JsonPipe,NgClass,FontAwesomeModule,NgIf],
 providers:[Injectable,APIService,Validators],
   templateUrl: './form-log.component.html',
   styleUrl: './form-log.component.css'

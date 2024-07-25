@@ -1,3 +1,5 @@
+import { faWordpress } from '@fortawesome/free-brands-svg-icons';
+import { faJs } from '@fortawesome/free-brands-svg-icons';
 export class Portafolio {
   portafolio = [
     {

@@ -13,20 +13,19 @@ import { PortafolioComponent } from './app/portafolio/portafolio.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { initFlowbite } from 'flowbite';
 import { NotificacionesService } from './app/notificaciones.service';
-const appRoutes: Routes = [
-  { path: 'Portafolio', component: PortafolioComponent },
+import { RegistrarComponent } from './app/registrar/registrar.component';
 
-  //{ path: '**', component: App }
-];
 @Component({
   selector: 'app-root',
   imports: [
+    RegistrarComponent,
     HeaderComponent,
     SliderComponent,
     RouterOutlet,
     PortafolioComponent,
     FontAwesomeModule,
     FooterComponent,
+    
    
   ],
   standalone: true,
@@ -34,6 +33,7 @@ const appRoutes: Routes = [
   template: `
  
 <app-header/>
+
 <app-slider/>
 <app-footer/>
   `,

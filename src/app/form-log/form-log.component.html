@@ -24,11 +24,17 @@
         style="font-size: 12px;display: block;width: 23px;height: 23px;padding: -5px;"
       ></fa-icon>{{menssegePassword}}!</span>
     </div>
-    <div class="flex items-start mb-5">
+    <div class="flex items-start mb-2">
       <div class="flex items-center h-5">
         <input id="remember"  #remember  ngModel type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
       </div>
       <label for="remember" class="ms-2 text-sm font-medium text-gray-300">Remember me</label>
+    </div>
+    <div class="flex items-start mb-5">
+      
+      <label for="remember" class="ms-2 text-sm font-medium text-gray-300">
+        <a  href="['/user/bob']"> Crear cuenta</a>
+      </label>
     </div>
     <button type="submit" class="rounded-md bg-gray-800  flex content-center p-1 text-white hover:text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
   </form>
@@ -46,6 +52,7 @@
   </div>
 
 </div>
+<router-outlet></router-outlet>
 <style>
   [data-popper-arrow]:after {
   
