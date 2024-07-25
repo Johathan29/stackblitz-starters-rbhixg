@@ -44,7 +44,7 @@
       >
       
       <li *ngFor="let item of navegation" class="mb-1  ">
-          <a routerLink="registrar"
+          <a href="{{item.url}}"
           class="rounded-md bg-gray-900 px-3 py-2 text-sm justify-between flex flex-auto text-white w-26"
           aria-current="page"><span>{{item.titulo}}</span>
           <fa-icon
