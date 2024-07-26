@@ -4,6 +4,7 @@ import {FormControl,FormsModule, FormGroup, Validators,NgForm} from '@angular/fo
 import { PortafolioComponent } from '../portafolio/portafolio.component';
 import { ProyectosComponent } from '../proyectos/proyectos.component';
 import { FormLogComponent} from '../form-log/form-log.component';
+import { RegistrarComponent } from '../registrar/registrar.component';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +16,7 @@ import { from } from 'rxjs';
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [FormsModule,PortafolioComponent, ProyectosComponent,NgIf,FormLogComponent, FontAwesomeModule, NgFor,JsonPipe],
+  imports: [FormsModule,RegistrarComponent,PortafolioComponent, ProyectosComponent,NgIf,FormLogComponent, FontAwesomeModule, NgFor,JsonPipe],
  providers:[],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule, Routes, RouterOutlet } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import 'zone.js';
-
+import { AppRoutingModule } from './app/app-routing/app-routing.module';
 import {  HttpClient } from '@angular/common/http';
 import { HeaderComponent } from './app/header/header.component';
 import { FooterComponent } from './app/footer/footer.component';
@@ -25,17 +25,25 @@ import { RegistrarComponent } from './app/registrar/registrar.component';
     PortafolioComponent,
     FontAwesomeModule,
     FooterComponent,
+    AppRoutingModule
     
    
   ],
   standalone: true,
 
   template: `
- 
+ <section>
+  <div>
 <app-header/>
-
+</div>
+<div>
 <app-slider/>
+
+</div>
+<div>
 <app-footer/>
+</div>
+</section>
   `,
 })
 export class App {
