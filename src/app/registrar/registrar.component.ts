@@ -14,7 +14,7 @@ export class RegistrarComponent implements OnInit  {
   ngOnInit() {
       
   }
-  onSubmitRegistrar(registrar : NgForm){
-    console.log(registrar.value);
+  onSubmitRegistrar(){
+    console.log();
   }
 }
