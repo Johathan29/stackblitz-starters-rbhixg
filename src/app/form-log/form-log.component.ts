@@ -84,6 +84,7 @@ this.asignaClases();
     value.email;
     
 });
+
 this.controlEmail= new FormControl(miForm.value.email, Validators.compose([
   Validators.required,
   Validators.email,
