@@ -1,0 +1,92 @@
+<nav class="bg-gray-800 border-gray-200 dark:bg-gray-900">
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+  >
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img
+        src="https://stackblitz.com/storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNWt4RGc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f62b5950707c670df0d7263d2b23e244642095d3/logo.png"
+        class="w-20"
+        alt=""
+      />
+      <span
+        class="self-center text-white md:text-xl  text-sm/[17px]  whitespace-nowrap dark:text-white"
+        >SOLUTION SUPPORTS</span
+      >
+      
+    </a>
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+      >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"
+        />
+      </svg>
+    </button>
+    <div class="min-[320px]:text-left max-[800px]:none lg:show w-full md:block md:w-auto hidden" id="navbar-default">
+      <ul
+        class="font-medium flex flex-col p-4 md:p-0 mt-4  border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      >
+      
+      <li *ngFor="let item of navegation" class="mb-1  ">
+          <a href="{{item.url}}"
+          class="rounded-md bg-gray-900 px-3 py-2 text-sm justify-between flex flex-auto text-white w-26"
+          aria-current="page"><span>{{item.titulo}}</span>
+          <fa-icon
+          [icon]="faCoffee" *ngIf="item.children.length!==0"
+          style="font-size: 13px;display: block;width: auto;text-align: end;">
+          </fa-icon>
+          </a>
+          <ul class="py-0 hidden relative md:absolute z-50 bg-gray-500  ml-[0.4rem]  md:w-[6.3rem]" *ngIf="item.children.length!==0">
+          <li *ngFor="let child of item.children" class=""  >
+            <a href="" *ngIf="child.childtitle!=''" class="block text-sm text-left px-3 py-2 text-white hover:bg-[#111827d9] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+              {{
+                child.childtitle
+              }}
+            </a>
+          </li>
+        </ul>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<Style>
+  .active{
+    color: white;
+  }
+  ul li:hover ul {
+    display: block!important;
+  }
+  ul li:hover fa-icon{
+    
+    color:rgb(107 114 128 / var(--tw-bg-opacity));
+    transition: 0.2s;
+    transform: rotate(180deg);
+    text-align: right;
+    position: sticky;
+  }
+  fa-icon{
+    
+    
+    transition: 0.2s;
+    transform: rotate(0deg);
+    text-align: right;
+  }
+</Style>

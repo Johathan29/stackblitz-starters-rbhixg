@@ -1,18 +1,20 @@
+<app-form-log 
+ (envRes)="captaResultado($event)"></app-form-log>
 <div class="relative isolate px-6 pt-14 lg:px-8">
-  <div class="fixed inset-auto right-2 z-50 flex pr-2 sm:fixed sm:pr-0">
+  <div class="fixed inset-auto right-2 z-50 flex pr-2 sm:fixed sm:pr-0" *ngIf="resultadoP">
     <button
       type="button"
       class="relative rounded-full mt-8 ml-4.5 bg-gray-800 p-1 text-gray-400 h-max hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
     >
       <fa-icon
         [icon]="faBell"
-        style="font-size: 18px;display: block;width: 23px;heigth: 45px;height: 23px;padding: -5px;"
+        style="font-size: 18px;display: block;width: 23px;height: 23px;padding: -5px;"
       ></fa-icon>
       <span class="sr-only">Notifications</span>
       <div
         class="absolute inline-flex items-center justify-center w-6 h-6 text-[10px] font-bold text-white bg-red-500 border-1 hover:border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900"
       >
-        {{ notifi }}
+        {{ datas.length }}
       </div>
     </button>
 
@@ -20,20 +22,40 @@
     <div class="relative ml-1">
       <div>
         <button
-          type="button"
-          class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-          id="user-menu-button"
-          aria-expanded="false"
-          aria-haspopup="true"
-        >
-          <span class="absolute -inset-1.5"></span>
-          <span class="sr-only">Open user menu</span>
-          <img
-            class="h-12 w-12 rounded-full"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt=""
-          />
-        </button>
+        type="button"
+        class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+        id="user-menu-button"
+        aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span class="absolute -inset-1.5"></span>
+        <span class="sr-only">Open user menu</span>
+        <img
+          class="h-12 w-12 rounded-full"
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          alt=""
+        />
+      </button>
+       <!-- Dropdown menu -->
+    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+      <div class="px-4 py-3">
+        <span class="block text-sm text-gray-900 dark:text-white">    {{resultadoP}}</span>
+        <span class="block text-sm  text-gray-500 truncate dark:text-gray-400"></span>
+      </div>
+      <ul class="py-2" aria-labelledby="user-menu-button">
+        <li>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+        </li>
+        <li>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+        </li>
+        <li>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+        </li>
+        <li>
+          <a (click)="SignOut()" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+        </li>
+      </ul>
+      </div>
+    
       </div>
     </div>
   </div>
@@ -41,20 +63,26 @@
     class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
     aria-hidden="true"
   ></div>
+  
   <div class="container mx-auto p-2 sm:py-48 lg:py-48">
-    <div class="text-center" *ngFor="let item of datas">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-        {{ item.name }}
-      </h1>
-      <p class="mt-2 text-lg leading-5 text-gray-600 font-serif opacity-50">
-        {{ item.description }}
-      </p>
-      <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a
-          href="{{ item.url }}"
-          class="rounded-md bg-gray-800 p-1 text-gray-400 hover:text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >Leer más <fa-icon [icon]="faCoffee"> </fa-icon
-        ></a>
+    <div class="text-center" *ngFor="let item of datas" >
+      
+      <div *ngIf="item.role">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+          {{ item.name }} 
+        </h1>
+        <p class="mt-2 text-lg leading-5 text-gray-600 font-serif opacity-50">
+          {{ item.description }}
+        </p>
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+          <a
+            href="{{ item.url }}"
+            class="rounded-md bg-gray-800  flex content-center p-1 text-gray-400 hover:text-white px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >Leer más <fa-icon
+            [icon]="faArrowRight"
+            style="font-size: 12px;display: block;width: 23px;height: 23px;padding: -5px;"
+          ></fa-icon></a>
+        </div>
       </div>
     </div>
   </div>
@@ -62,7 +90,7 @@
 
 <section
   id="portafolio"
-  class="border-t-8 w-full relative"
+  class=" w-full relative "
   style="background-image:url(https://s1.wp.com/wp-content/themes/h4/assets/hosting/globe.svg);background-position: top;background-repeat: no-repeat;background-size: 40rem;"
 >
   <img
@@ -72,7 +100,7 @@
   />
   <div class="container px-4 mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
     <h4
-      class="text-white border-b-4 border-solid border-sky-500 pt-4 font-serif"
+      class="text-white border-b-2 border-solid border-[#23324c8f] w-3/4 pt-4 font-serif"
     >
       Titulo
     </h4>
@@ -81,9 +109,28 @@
 </section>
 <section id="proyectos" class="border-t-8 w-full">
   <div class="container px-4 mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-    <h4 class="border-b-4 border-solid border-sky-500 pt-4 font-serif">
+    <h4 class="border-b-2 border-solid border-[#23324c8f] w-3/4 pt-4 font-serif">
       Titulo
     </h4>
   </div>
   <app-proyectos />
 </section>
+<section class="w-full relative bg-gray-600  p-6 flex">
+  <div class="container px-4 w-1/2 p-4 py-6 flex items-center border-r-2 lg:py-8">
+    <h4
+      class="text-white text-center w-full pt-4 font-serif"
+    >
+      Registrar usuario
+    </h4>
+  </div>
+  <div class="w-1/2">
+    <app-registrar></app-registrar>
+  </div>
+</section>
+<style>
+  [data-popper-arrow]:after {
+
+    border-top: 2px solid #e5e7eb;
+    border-left: 2px solid #e5e7eb;
+  }
+</style>
