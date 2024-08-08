@@ -4,17 +4,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { App } from './main';
 import { PortafolioComponent } from './app/portafolio/portafolio.component';
+import { SliderComponent } from './app/slider/slider.component';
 
 const appRoutes: Routes = [
   
-  { path: 'Portafolio', component: PortafolioComponent },
+  { path: '/home', component: SliderComponent },
 
-  //{ path: '**', component: App }
+  //{ path: '**', component: SliderComponent }
 ];
 @NgModule({
-  declarations: [App],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+  declarations: [],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes),App],
   providers: [],
   bootstrap: [App],
 })
-export class AppModule {}
+export class AppModule {
+
+}

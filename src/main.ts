@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,NgModule } from '@angular/core';
 import { RouterModule, Routes, RouterOutlet } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import 'zone.js';
@@ -14,7 +14,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { initFlowbite } from 'flowbite';
 import { NotificacionesService } from './app/notificaciones.service';
 import { RegistrarComponent } from './app/registrar/registrar.component';
-
+import { appRoutes } from './APP_ROUTES';
+import {AppModule} from './NgModule'
 @Component({
   selector: 'app-root',
   imports: [
@@ -25,8 +26,7 @@ import { RegistrarComponent } from './app/registrar/registrar.component';
     PortafolioComponent,
     FontAwesomeModule,
     FooterComponent,
-    AppRoutingModule
-    
+ 
    
   ],
   standalone: true,
@@ -36,19 +36,22 @@ import { RegistrarComponent } from './app/registrar/registrar.component';
   <div>
 <app-header/>
 </div>
-<div>
+
 <app-slider/>
 
-</div>
+
 <div>
 <app-footer/>
 </div>
 </section>
   `,
 })
+
+
 export class App {
   name = 'Angular';
   faCoffee = faVirus;
+  
 }
 
 bootstrapApplication(App, {

@@ -1,14 +1,10 @@
 import { Routes } from '@angular/router';
 import { SliderComponent } from './app/slider/slider.component';
 
-export const APP_ROUTES: Routes = [
+export const appRoutes: Routes = [
+    
     {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'home'
-    },
-    {
-        path: 'home',
+        path: '/home',
         component: SliderComponent
     },
 
