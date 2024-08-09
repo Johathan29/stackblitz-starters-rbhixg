@@ -23,6 +23,7 @@ export class FormLogComponent implements OnInit {
   faSmile=faSmile;
   faExclamationCircle=faExclamationCircle;
  path:any; 
+ perfil:any;
  notificacion:any;
  hidden="hidden";
  classUserRegistrado=['fixed', ' inset-auto', ' right-2', ' z-40 ', 'flex ', 'pr-2 ', ' mt-2', ' sm:fixed', ' sm:pr-0']
@@ -30,7 +31,8 @@ export class FormLogComponent implements OnInit {
  classValid=['flex ','absolute','w-full', 'items-center', ' p-4', ' mb-4', 'text-sm ', 'text-green-800 ', 'rounded-lg ', 'bg-green-50', ' dark:bg-gray-800 ', 'dark:text-green-400'] 
  classBtncerrarError=['ms-auto', ' -mx-1.5 ','z-50', '-my-1.5', ' bg-red-50', ' text-red-500', ' rounded-lg', ' focus:ring-2', ' focus:ring-red-400', ' p-1.5', ' hover:bg-red-200', ' inline-flex', ' items-center', ' justify-center', ' h-8', ' w-8', ' dark:bg-gray-800', ' dark:text-red-400', ' dark:hover:bg-gray-700']
  classBtncerrarValid=['ms-auto', ' -mx-1.5 ', 'z-50','-my-1.5', ' bg-green-50', ' text-green-500', ' rounded-lg', ' focus:ring-2', ' focus:ring-red-400', ' p-1.5', ' hover:bg-green-200', ' inline-flex', ' items-center', ' justify-center', ' h-8', ' w-8', ' dark:bg-gray-800', ' dark:text-green-400', ' dark:hover:bg-gray-700']
-  name:any;
+ emailValidado:any; 
+ name:any;
   email:any;
    data:any;
    classes=['max-w-sm', 'mx-auto', 'z-50', 'bg-[#19243ccc]', 'rounded-md', 'p-4']; 
@@ -53,17 +55,14 @@ export class FormLogComponent implements OnInit {
  get= async () => {
     const response = await fetch('https://dummyjson.com/users');
     this.result= await response.json();
-    console.log(this.result.users);
-
-
-  
- }
+     }
  remember(){
 
  }
   activo=false;
   ngOnInit() { //this.Get();
     this.get();
+
     this.envRes.emit(localStorage.getItem("nombre"))
     
  
@@ -79,17 +78,15 @@ this.asignaClases();
     
 });
 
-const emailValidado=this.result.users.find(function(emai:any) {
+ this.emailValidado=this.result.users.find(function(emai:any) {
   // Check if the current mark is even
 return emai.email==miForm.value.email && emai.password==miForm.value.password;
 });
-if(emailValidado){
-  console.log(emailValidado.firstName)
+if(this.emailValidado){
   this.activo=true;
+  localStorage.setItem("perfil",JSON.stringify(this.emailValidado))
   this.classes.push('hidden');
   this.asignaClases();
-  console.log(localStorage.setItem('nombre',emailValidado.firstName));
-  localStorage.setItem('role',emailValidado.role);
   this.validar();
   location.reload();
   this.notificacion="Bienvenido";
@@ -100,21 +97,6 @@ if(emailValidado){
 
 }
 
-   /* if(miForm.value.email===this.email && miForm.value.password==='12345')
-    {
-      alert('hola Johathan');
-      this.activo=true;
-      this.classes.push('hidden');
-      this.asignaClases();
-   localStorage.setItem('nombre','Alexander');
-   
-    
-    } else{
-      alert('su email y password son incorretas, intenta de nuevo');
-      this.validar();
-    }
-    */
-    
   }
   restablecer(){
     return this.classError;

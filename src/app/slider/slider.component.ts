@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy, inject,Input, Output,EventEmitter} from '@angular/core';
+import { Component, OnInit,OnDestroy, inject,Input, Output,EventEmitter, output} from '@angular/core';
 import { NgFor,JsonPipe,NgIf } from '@angular/common';
 import { FormSubmittedEvent, FormsModule } from '@angular/forms';
 import { PortafolioComponent } from '../portafolio/portafolio.component';
@@ -26,6 +26,11 @@ export class SliderComponent implements OnInit {
   faBell = faBell;
   notifi = 20;
   role=localStorage.getItem('role');
+  perfil=localStorage.getItem('perfil');
+  perfilvalor:any;
+  avatar=localStorage.getItem('avatar');
+  nombre=localStorage.getItem('nombre');
+  perfilverifica:any;
   valor: any;
   datas = [
     {
@@ -35,16 +40,33 @@ export class SliderComponent implements OnInit {
         ' Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.',
       url: '/',
     },
-  ];
+    {
+      role: 'moderator',
+      name: 'Data to enrich your online business',
+      description:
+        ' Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.',
+      url: '/',
+    }
+  ]
+  ;
+  
   constructor(private resultadoPeticion: NotificacionesService) {}
+  captaResultado(event:any) { this.resultadoP = event;
+  
+  
+  }
   ngOnInit() {
+    
+    this.perfilvalor=this.perfil;
+    let cambios=JSON.parse(this.perfilvalor);
+    this.perfilvalor=cambios;
     this.role;
     this.valor = this.datas.find(
       (item) =>
         (item.name = 'Data to enrich your online business' ? item.name : '')
     );
   }
-  captaResultado(event:any) { this.resultadoP = event; }
+  
 ngOnDestroy(){
   this.SignOut();
 }
