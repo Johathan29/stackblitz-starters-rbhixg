@@ -15,10 +15,14 @@ import { initFlowbite } from 'flowbite';
 import { NotificacionesService } from './app/notificaciones.service';
 import { FormLogComponent } from './app/form-log/form-log.component';
 import { NotFoundComponent } from './app/not-found/not-found.component';
+import { PerfilUserComponent } from './app/perfil-user/perfil-user.component';
 const appRoutes: Routes = [
   { path: 'Portafolio', component: PortafolioComponent },
 
   { path: '', component: SliderComponent },
+  {
+    path:':id', component:PerfilUserComponent
+  },
   {
     path:'**', component:NotFoundComponent
   }
