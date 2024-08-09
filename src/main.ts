@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, Routes, RouterOutlet } from '@angular/router';
+import { RouterModule,provideRouter, Routes, RouterOutlet } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import 'zone.js';
 
@@ -13,10 +13,15 @@ import { PortafolioComponent } from './app/portafolio/portafolio.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { initFlowbite } from 'flowbite';
 import { NotificacionesService } from './app/notificaciones.service';
+import { FormLogComponent } from './app/form-log/form-log.component';
+import { NotFoundComponent } from './app/not-found/not-found.component';
 const appRoutes: Routes = [
   { path: 'Portafolio', component: PortafolioComponent },
 
-  //{ path: '**', component: App }
+  { path: '', component: SliderComponent },
+  {
+    path:'**', component:NotFoundComponent
+  }
 ];
 @Component({
   selector: 'app-root',
@@ -27,6 +32,7 @@ const appRoutes: Routes = [
     PortafolioComponent,
     FontAwesomeModule,
     FooterComponent,
+    FormLogComponent
    
   ],
   standalone: true,
@@ -34,8 +40,11 @@ const appRoutes: Routes = [
   template: `
  
 <app-header/>
-<app-slider/>
+<router-outlet></router-outlet>
+
 <app-footer/>
+
+
   `,
 })
 export class App {
@@ -44,5 +53,5 @@ export class App {
 }
 
 bootstrapApplication(App, {
-  providers: [provideAnimationsAsync()],
+  providers: [provideAnimationsAsync(),provideRouter(appRoutes)],
 });
