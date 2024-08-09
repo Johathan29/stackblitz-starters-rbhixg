@@ -55,6 +55,7 @@ export class FormLogComponent implements OnInit {
  get= async () => {
     const response = await fetch('https://dummyjson.com/users');
     this.result= await response.json();
+    this.result.users
      }
  remember(){
 
@@ -77,13 +78,15 @@ this.asignaClases();
     value.email;
     
 });
-
+console.log(miForm.value.password);
  this.emailValidado=this.result.users.find(function(emai:any) {
   // Check if the current mark is even
 return emai.email==miForm.value.email && emai.password==miForm.value.password;
 });
+console.log( this.emailValidado);
 if(this.emailValidado){
   this.activo=true;
+  localStorage.setItem('nombre',this.emailValidado.firstName)
   localStorage.setItem("perfil",JSON.stringify(this.emailValidado))
   this.classes.push('hidden');
   this.asignaClases();
