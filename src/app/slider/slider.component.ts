@@ -31,7 +31,7 @@ export class SliderComponent implements OnInit {
       url: '/',
     },
   ];
-  constructor(private resultadoPeticion: NotificacionesServic) {}
+  constructor(private resultadoPeticion: NotificacionesService) {}
   ngOnInit() {
     
     this.valor = this.datas.find(
