@@ -25,7 +25,7 @@ export class SliderComponent implements OnInit {
   resultadoP:any;
   faBell = faBell;
   notifi = 20;
-  role=localStorage.getItem('role');
+  role:any;
   perfil=localStorage.getItem('perfil');
   perfilvalor:any;
   avatar=localStorage.getItem('avatar');
@@ -60,7 +60,7 @@ export class SliderComponent implements OnInit {
     this.perfilvalor=this.perfil;
     let cambios=JSON.parse(this.perfilvalor);
     this.perfilvalor=cambios;
-    this.role;
+    this.role=this.perfilvalor.role;
     this.valor = this.datas.find(
       (item) =>
         (item.name = 'Data to enrich your online business' ? item.name : '')

@@ -86,6 +86,7 @@ return emai.email==miForm.value.email && emai.password==miForm.value.password;
 console.log( this.emailValidado);
 if(this.emailValidado){
   this.activo=true;
+  localStorage.setItem('role',this.emailValidado.role);
   localStorage.setItem('nombre',this.emailValidado.firstName)
   localStorage.setItem("perfil",JSON.stringify(this.emailValidado))
   this.classes.push('hidden');
