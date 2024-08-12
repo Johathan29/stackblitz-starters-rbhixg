@@ -83,7 +83,7 @@ console.log(miForm.value.password);
   // Check if the current mark is even
 return emai.email==miForm.value.email && emai.password==miForm.value.password;
 });
-console.log( this.emailValidado);
+console.log(this.emailValidado);
 if(this.emailValidado){
   this.activo=true;
   localStorage.setItem('role',this.emailValidado.role);

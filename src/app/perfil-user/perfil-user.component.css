@@ -1,0 +1,7 @@
+input[disabled] {
+    background: gainsboro;
+    cursor: no-drop;
+}
+h5 {
+    margin: 0px !important;
+}
