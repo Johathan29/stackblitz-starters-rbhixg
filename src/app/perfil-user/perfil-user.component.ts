@@ -1,13 +1,13 @@
 import { Component,OnInit,Injectable } from '@angular/core';
 import {DatePipe} from '@angular/common';
-import { FormSubmittedEvent, FormsModule, NgForm,FormBuilder,Validators,FormGroup,ReactiveFormsModule } from '@angular/forms';
+import { FormSubmittedEvent,FormControl, FormsModule, NgForm,FormBuilder,Validators,FormGroup,ReactiveFormsModule } from '@angular/forms';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-perfil-user',
   standalone: true,
-  imports: [DatePipe,FontAwesomeModule,],
+  imports: [DatePipe,FontAwesomeModule],
   templateUrl: './perfil-user.component.html',
   styleUrl: './perfil-user.component.css'
 })
@@ -18,6 +18,9 @@ perfilvalor:any;
 date='2020-08-07';
 faAddressBook=faAddressBook;
 faUserAlt=faUserAlt;
+profileForm = new FormGroup({
+  firstName: new FormControl(''),
+});
 ngOnInit()
 {
  
@@ -26,7 +29,13 @@ ngOnInit()
   this.perfilvalor=cambios;
   console.log(this.perfilvalor)
 }
-onSubmit(miForm: NgForm){
-console.log(miForm.value);
+onSubmit(firstName : string){
+  
+  this.perfilvalor.firstName=firstName;
+  localStorage.setItem("perfil",JSON.stringify(this.perfilvalor));
+
+}
+updateName() {
+  alert(this.profileForm);
 }
 }
