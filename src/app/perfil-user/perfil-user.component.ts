@@ -8,34 +8,45 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   selector: 'app-perfil-user',
   standalone: true,
   imports: [DatePipe,FontAwesomeModule],
+  providers:[Injectable],
   templateUrl: './perfil-user.component.html',
   styleUrl: './perfil-user.component.css'
 })
-
+@Injectable()
 export class PerfilUserComponent implements OnInit{
 perfil=localStorage.getItem('perfil');
 perfilvalor:any;
 date='2020-08-07';
 faAddressBook=faAddressBook;
 faUserAlt=faUserAlt;
-profileForm = new FormGroup({
-  firstName: new FormControl(''),
-});
+result : any;
+get= async () => {
+  const response = await fetch('https://dummyjson.com/users');
+  this.result= await response.json();
+  this.result.users;
+   }
 ngOnInit()
 {
- 
+  this.get();
   this.perfilvalor=this.perfil;
   let cambios=JSON.parse(this.perfilvalor);
   this.perfilvalor=cambios;
-  console.log(this.perfilvalor)
+ 
 }
-onSubmit(firstName : string){
-  
+onSubmit(firstName : string,lastName : string){
+  console.log(this.result.users);
+const ID=this.perfilvalor;
   this.perfilvalor.firstName=firstName;
+  this.perfilvalor.lastName=lastName;
   localStorage.setItem("perfil",JSON.stringify(this.perfilvalor));
+  const users=this.result.users.find(function(id:any) {
+    // Check if the current mark is even
+ if(id.id===ID.id) {
+ return id.firstName=ID.firstName;
+ }
+  });
+  console.log(this.perfilvalor);
+  console.log(users);
+}
 
-}
-updateName() {
-  alert(this.profileForm);
-}
 }

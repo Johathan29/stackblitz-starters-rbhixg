@@ -14,7 +14,7 @@ import { NotificacionesService } from '../notificaciones.service';
   selector: 'app-slider',
   standalone: true,
   imports: [PortafolioComponent, ProyectosComponent,NgIf,FormLogComponent, FontAwesomeModule, NgFor,FormsModule,JsonPipe],
-  providers: [NotificacionesService],
+  providers: [NotificacionesService,],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',
 })
