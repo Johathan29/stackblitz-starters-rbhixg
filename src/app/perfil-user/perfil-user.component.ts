@@ -42,7 +42,7 @@ const ID=this.perfilvalor;
   const users=this.result.users.find(function(id:any) {
     // Check if the current mark is even
  if(id.id===ID.id) {
- return id.firstName=ID.firstName;
+ return id.firstName=ID.firstName,id.lastName=ID.lastName;
  }
   });
   console.log(this.perfilvalor);

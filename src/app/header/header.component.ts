@@ -36,6 +36,15 @@ children:[
       }
   ],
     
-      }
+      },
+      {
+        titulo:'Registrar',
+        url:'/registrar',
+        children:[
+          
+        ],
+        
+        
+          },
 ]
 }
