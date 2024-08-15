@@ -9,11 +9,12 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Post } from '../post';
 import { HttpClient } from '@angular/common/http';
+import { RegistrarComponent } from '../registrar/registrar.component';
 import { NotificacionesService } from '../notificaciones.service';
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [PortafolioComponent, ProyectosComponent,NgIf,FormLogComponent, FontAwesomeModule, NgFor,FormsModule,JsonPipe],
+  imports: [RegistrarComponent,PortafolioComponent, ProyectosComponent,NgIf,FormLogComponent, FontAwesomeModule, NgFor,FormsModule,JsonPipe],
   providers: [NotificacionesService,],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css',

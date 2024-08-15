@@ -28,11 +28,11 @@ children:[
     url:'/portafolio',
     children:[{
       childtitle:'Wordpress',
-    childurl:'wordpress'
+      childurl:'WordPress'
     },
     {
-      childtitle:'Angular',
-      childurl:'angular'
+      childtitle:'JavaScript',
+      childurl:'JavaScript'
       }
   ],
     

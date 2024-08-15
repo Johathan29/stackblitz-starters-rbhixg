@@ -55,7 +55,7 @@
           </a>
           <ul class="py-0 hidden relative md:absolute z-50 bg-gray-500  mx-[0.4rem]  md:w-[6.3rem]" *ngIf="item.children.length!==0">
           <li *ngFor="let child of item.children" class=""  >
-            <a href="" *ngIf="child.childtitle!=''" class="block text-sm text-left px-3 py-2 text-white hover:bg-[#111827d9] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+            <a routerLink="{{item.url}}/{{child.childurl}}" *ngIf="child.childtitle!=''" class="block text-sm text-left px-3 py-2 text-white hover:bg-[#111827d9] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
               {{
                 child.childtitle
               }}
