@@ -31,7 +31,7 @@ children:[
 
   { path: '', component:SliderComponent },
   {
-    path:':id', component:PerfilUserComponent
+    path:'#:id', component:PerfilUserComponent
   },
   
   {
