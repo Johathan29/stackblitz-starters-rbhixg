@@ -24,10 +24,10 @@ children:[
   
 ]
 },
-{ path: 'portafolio/:title', component:WordpressComponent, 
+{ path: '#/portafolio/:title', component:WordpressComponent, 
 
 },
-  { path: '/registrar', component:RegistrarComponent },
+  { path: '#/registrar', component:RegistrarComponent },
 
   { path: '', component:SliderComponent },
   {
