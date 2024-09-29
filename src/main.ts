@@ -29,7 +29,7 @@ children:[
 },
   { path: '/registrar', component:RegistrarComponent },
 
-  { path: '/', component:SliderComponent },
+  { path: '', component:SliderComponent },
   {
     path:'/:id', component:PerfilUserComponent
   },
