@@ -19,7 +19,7 @@ import { PerfilUserComponent } from './app/perfil-user/perfil-user.component';
 import { RegistrarComponent } from './app/registrar/registrar.component';
 import { WordpressComponent } from './app/wordpress/wordpress.component';
 const appRoutes: Routes = [
-  { path: '/portafolio', component:PortafolioComponent, 
+  { path: 'portafolio', component:PortafolioComponent, 
 children:[
   
 ]
