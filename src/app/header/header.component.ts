@@ -25,7 +25,7 @@ children:[
   },
   {
     titulo:'Portafolio',
-    url:'/portafolio',
+    url:'#/portafolio',
     children:[{
       childtitle:'Wordpress',
       childurl:'WordPress'
@@ -39,7 +39,7 @@ children:[
       },
       {
         titulo:'Registrar',
-        url:'/registrar',
+        url:'#/registrar',
         children:[
           
         ],
